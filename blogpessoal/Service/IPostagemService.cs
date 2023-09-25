@@ -8,7 +8,7 @@ namespace blogpessoal.Service
 
         Task<Postagem?> GetById(long id);
 
-        Task<IEnumerable<Postagem>> GettByTitulo(string titulo);
+        Task<IEnumerable<Postagem>> GetByTitulo(string titulo);
 
         Task<Postagem?> Create(Postagem postagem);
 

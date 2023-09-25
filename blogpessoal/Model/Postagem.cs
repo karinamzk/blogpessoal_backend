@@ -7,7 +7,7 @@ namespace blogpessoal.Model
     {
         [Key] // Primary Keu (Id)
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // IDENTITY (1,1)
-        public long id {get;set;}
+        public long Id {get;set;}
 
         [Column(TypeName = "Varchar")]
         [StringLength(100)]
