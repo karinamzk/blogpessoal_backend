@@ -73,10 +73,8 @@ namespace blogpessoal.Service.Implements
 
         public async Task Delete(Tema tema)
         {
-
             _context.Temas.Remove(tema);
             await _context.SaveChangesAsync();
-
         }
     }
 }
