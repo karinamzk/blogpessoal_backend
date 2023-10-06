@@ -61,7 +61,7 @@ namespace blogpessoal.Controllers
             return CreatedAtAction(nameof(GetById), new { id = Resposta.Id }, Resposta);
         }
         [Authorize]
-        [HttpPut("Atualizar")]
+        [HttpPut("atualizar")]
         public async Task<ActionResult> Update([FromBody] User user)
         {
             if (user.Id == 0)
@@ -80,7 +80,7 @@ namespace blogpessoal.Controllers
             var Resposta = await _userService.Update(user);
 
             if (Resposta is null)
-                return NotFound("User não encontrado!");
+                return NotFound("Usuário não encontrado!");
 
             return Ok(Resposta);
         }

@@ -1,6 +1,5 @@
 ﻿using blogpessoal.Data;
 using blogpessoal.Model;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace blogpessoal.Service.Implements
@@ -78,7 +77,7 @@ namespace blogpessoal.Service.Implements
 
         public async Task<User?> Update(User usuario)
         {
-            var UserUpdate = await _context.Temas.FindAsync(usuario.Id);
+            var UserUpdate = await _context.Users.FindAsync(usuario.Id);
 
             if (UserUpdate is null)
                 return null;
@@ -93,8 +92,6 @@ namespace blogpessoal.Service.Implements
             await _context.SaveChangesAsync();
 
             return usuario;
-
-
         }
     }
 }
