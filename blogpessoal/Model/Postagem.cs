@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace blogpessoal.Model
@@ -17,6 +18,7 @@ namespace blogpessoal.Model
         [StringLength(1000)]
         public string Texto { get; set; } = string.Empty;
 
+        [JsonIgnore]
         public virtual Tema? Tema { get; set; }
         public virtual User? Usuario { get; set; }
         

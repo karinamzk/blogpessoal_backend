@@ -34,7 +34,7 @@ namespace blogpessoal
                 });
 
             // Conexão com o Banco de dados
-            if (builder.Configuration["Enviroment:Start"] == "PROD")
+            if (builder.Configuration["Environment:Start"] == "PROD")
             {
                 builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
                     .AddJsonFile("secrets.json");
@@ -54,7 +54,7 @@ namespace blogpessoal
 
                   builder.Services.AddDbContext<AppDbContext>(options =>
                   options.UseSqlServer(connectionString)
-            );
+                );
 
             }
 
@@ -174,6 +174,8 @@ namespace blogpessoal
             // Inicializa o CORS
 
             app.UseCors("MyPolicy");
+
+            app.UseAuthentication();
 
             // Habilitar a Autenticação e a Autorização
 
