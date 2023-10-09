@@ -10,6 +10,7 @@ using blogpessoal.Validator;
 using FluentValidation;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -34,9 +35,10 @@ namespace blogpessoal
                 });
 
             // Conexão com o Banco de dados
-            if (builder.Configuration["Environment:Start"] == "PROD")
+            if (builder.Configuration["Enviroment:Start"] == "PROD")
             {
-                builder.Configuration.SetBasePath(Directory.GetCurrentDirectory())
+                builder.Configuration
+                    .SetBasePath(Directory.GetCurrentDirectory())
                     .AddJsonFile("secrets.json");
 
                 var connectionString = builder.Configuration
@@ -169,6 +171,10 @@ namespace blogpessoal
                     options.RoutePrefix = string.Empty;
                 });
 
+            }
+            else
+            {
+                app.UseSwaggerUI();
             }
 
             // Inicializa o CORS

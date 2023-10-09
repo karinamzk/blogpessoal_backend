@@ -18,7 +18,6 @@ namespace blogpessoal.Model
         [StringLength(1000)]
         public string Texto { get; set; } = string.Empty;
 
-        [JsonIgnore]
         public virtual Tema? Tema { get; set; }
         public virtual User? Usuario { get; set; }
         

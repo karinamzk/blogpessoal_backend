@@ -15,7 +15,7 @@ namespace blogpessoal.Model
         public string Descricao { get; set; } = string.Empty;
 
         [InverseProperty("Tema")]
-        [JsonIgnore]
+        
         public virtual ICollection<Postagem>? Postagem { get; set; }
     }
 }
