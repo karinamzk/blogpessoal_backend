@@ -32,7 +32,7 @@ namespace BlogPessoalTest.Factory
                 
                 try
                 {
-                    appContext.Database.EnsureCreated();
+                    appContext!.Database.EnsureCreated();
                 }
                 catch (Exception ex)
                 {

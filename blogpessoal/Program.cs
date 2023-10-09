@@ -167,7 +167,7 @@ namespace blogpessoal
             {
                 app.UseSwaggerUI(options =>
                 {
-                    options.SwaggerEndpoint("/swagger/v1/sagger.json", "Blog Pessoal - v1");
+                    options.SwaggerEndpoint("/swagger/v1/sagger.json", "Blog Pessoal - V1");
                     options.RoutePrefix = string.Empty;
                 });
 
