@@ -35,7 +35,7 @@ namespace blogpessoal
                 });
 
             // Conexão com o Banco de dados
-            if (builder.Configuration["Enviroment:Start"] == "PROD")
+            if (builder.Configuration["Environment:Start"] == "PROD")
             {
                 builder.Configuration
                     .SetBasePath(Directory.GetCurrentDirectory())
