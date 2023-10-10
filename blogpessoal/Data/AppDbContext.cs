@@ -1,5 +1,6 @@
 ﻿using blogpessoal.Model;
 using Microsoft.EntityFrameworkCore;
+using blogpessoal.Configuration;
 
 namespace blogpessoal.Data
 {
@@ -48,7 +49,7 @@ namespace blogpessoal.Data
                 //Se uma propriedade da Classe Auditable estiver sendo criada. 
                 if (insertedEntry is Auditable auditableEntity)
                 {
-                    auditableEntity.Data = new DateTimeOffset(DateTime.Now); // new TimeSpan(-3, 0, 0));  
+                    auditableEntity.Data = DateTimeOffset.Now; // new TimeSpan(-3, 0, 0));  
                 }
             }
 
@@ -61,11 +62,20 @@ namespace blogpessoal.Data
                 //Se uma propriedade da Classe Auditable estiver sendo atualizada.  
                 if (modifiedEntry is Auditable auditableEntity)
                 {
-                    auditableEntity.Data = new DateTimeOffset(DateTime.Now); // new TimeSpan(-3, 0, 0));
+                    auditableEntity.Data = DateTimeOffset.Now; // new TimeSpan(-3, 0, 0));
                 }
             }
 
             return base.SaveChangesAsync(cancellationToken);
+
+        }
+
+        // Ajusta a Data para o formato UTC - Compatível com o Postgres
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            configurationBuilder
+                .Properties<DateTimeOffset>()
+                .HaveConversion<DateTimeOffsetConverter>();
         }
     }
 }

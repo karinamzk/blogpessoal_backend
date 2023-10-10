@@ -1,4 +1,3 @@
-
 using blogpessoal.Configuration;
 using blogpessoal.Data;
 using blogpessoal.Model;
@@ -10,7 +9,6 @@ using blogpessoal.Validator;
 using FluentValidation;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
